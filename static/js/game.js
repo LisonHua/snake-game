@@ -148,6 +148,31 @@ class Game {
             }
         });
 
+        // 添加方向按钮事件监听
+        document.querySelector('.up-btn').addEventListener('click', () => {
+            if (this.snake.direction.y !== 1) {
+                this.snake.direction = { x: 0, y: -1 };
+            }
+        });
+
+        document.querySelector('.down-btn').addEventListener('click', () => {
+            if (this.snake.direction.y !== -1) {
+                this.snake.direction = { x: 0, y: 1 };
+            }
+        });
+
+        document.querySelector('.left-btn').addEventListener('click', () => {
+            if (this.snake.direction.x !== 1) {
+                this.snake.direction = { x: -1, y: 0 };
+            }
+        });
+
+        document.querySelector('.right-btn').addEventListener('click', () => {
+            if (this.snake.direction.x !== -1) {
+                this.snake.direction = { x: 1, y: 0 };
+            }
+        });
+
         document.getElementById('start-button').addEventListener('click', () => this.start());
         document.getElementById('restart-button').addEventListener('click', () => this.restart());
     }

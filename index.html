@@ -13,15 +13,23 @@
             <button id="start-button">开始游戏</button>
         </div>
         <div id="game-screen" class="screen hidden">
-            <canvas id="gameCanvas"></canvas>
             <div class="game-info">
                 <div id="score">得分: 0</div>
                 <div id="speed">速度: 5</div>
             </div>
+            <canvas id="gameCanvas"></canvas>
+            <div class="direction-controls">
+                <button class="direction-btn up-btn">↑</button>
+                <div class="horizontal-btns">
+                    <button class="direction-btn left-btn">←</button>
+                    <button class="direction-btn right-btn">→</button>
+                </div>
+                <button class="direction-btn down-btn">↓</button>
+            </div>
         </div>
         <div id="game-over-screen" class="screen hidden">
-            <h2>游戏结束!</h2>
-            <div id="final-score"></div>
+            <h2>游戏结束</h2>
+            <div id="final-score">最终得分: 0</div>
             <button id="restart-button">重新开始</button>
         </div>
     </div>
