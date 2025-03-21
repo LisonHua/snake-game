@@ -4,13 +4,13 @@
 
 ## 在线游玩
 
-访问 [贪吃蛇游戏](https://[你的GitHub用户名].github.io/snake-game) 即可开始游戏！
+访问 [贪吃蛇游戏](https://LisonHua.github.io/snake-game) 即可开始游戏！
 
 ## 本地运行
 
 1. 克隆仓库：
 ```bash
-git clone https://github.com/[你的GitHub用户名]/snake-game.git
+git clone https://github.com/LisonHua/snake-game.git
 cd snake-game
 ```
 
@@ -26,7 +26,7 @@ python app.py
 
 4. 在浏览器中访问：
 ```
-http://localhost:5000
+https://LisonHua.github.io/snake-game
 ```
 
 ## 游戏控制
