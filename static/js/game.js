@@ -119,6 +119,7 @@ class Game {
         this.food = new Food(this.canvas);
         this.gameLoop = null;
         this.setupEventListeners();
+        this.setupTouchControls();
     }
 
     setupEventListeners() {
@@ -149,6 +150,46 @@ class Game {
 
         document.getElementById('start-button').addEventListener('click', () => this.start());
         document.getElementById('restart-button').addEventListener('click', () => this.restart());
+    }
+
+    setupTouchControls() {
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        this.canvas.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            e.preventDefault(); // 防止页面滚动
+        }, { passive: false });
+
+        this.canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // 防止页面滚动
+        }, { passive: false });
+
+        this.canvas.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            // 判断滑动方向
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                // 水平滑动
+                if (deltaX > 0 && this.snake.direction.x !== -1) {
+                    this.snake.direction = { x: 1, y: 0 }; // 向右
+                } else if (deltaX < 0 && this.snake.direction.x !== 1) {
+                    this.snake.direction = { x: -1, y: 0 }; // 向左
+                }
+            } else {
+                // 垂直滑动
+                if (deltaY > 0 && this.snake.direction.y !== -1) {
+                    this.snake.direction = { x: 0, y: 1 }; // 向下
+                } else if (deltaY < 0 && this.snake.direction.y !== 1) {
+                    this.snake.direction = { x: 0, y: -1 }; // 向上
+                }
+            }
+        });
     }
 
     start() {
