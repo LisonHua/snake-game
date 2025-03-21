@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <div id="start-screen" class="screen">
+            <h1>贪吃蛇游戏</h1>
+            <button id="start-button">开始游戏</button>
+        </div>
+        <div id="game-screen" class="screen hidden">
+            <canvas id="gameCanvas"></canvas>
+            <div class="game-info">
+                <div id="score">得分: 0</div>
+                <div id="speed">速度: 5</div>
+            </div>
+        </div>
+        <div id="game-over-screen" class="screen hidden">
+            <h2>游戏结束!</h2>
+            <div id="final-score"></div>
+            <button id="restart-button">重新开始</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html> 
